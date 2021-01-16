@@ -1,4 +1,10 @@
 ---
+- name: Install from an additional repo
+  apt:
+    deb: "{{ mysql_enablerepo }}"
+    state: present
+  when: ansible_os_family == 'Debian' and ansible_distribution == 'Ubuntu' and mysql_enablerepo != ""
+
 - name: Check if MySQL is already installed.
   stat: path=/etc/init.d/mysql
   register: mysql_installed
