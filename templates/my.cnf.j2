@@ -17,6 +17,9 @@ skip-name-resolve
 {% if mysql_sql_mode %}
 sql_mode = {{ mysql_sql_mode }}
 {% endif %}
+{% if mysql_default_authentication_plugin %}
+default-authentication-plugin = {{ mysql_default_authentication_plugin }}
+{% endif %}
 
 # Logging configuration.
 {% if mysql_log_error == 'syslog' or mysql_log == 'syslog' %}
